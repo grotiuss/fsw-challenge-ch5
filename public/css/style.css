@@ -1,3 +1,7 @@
+#navbar{
+    background-color: rgba(0, 0, 0, 0.7)
+}
+
 #header {
     background-image: linear-gradient(transparent 5em, black), url(assets/main-bg.jpg), url(assets/main-bg.jpg);
     background-size: cover;
@@ -42,6 +46,10 @@
     min-height: 100vh;
     max-height: 100%;
     padding-top: 3em;
+}
+
+#selectedSection {
+    display: none;
 }
 
 .navbar-brand {
@@ -126,6 +134,7 @@
 
 h1 {
     font-family: 'Bebas Neue', cursive;
+
     font-size: 80px;
     font-weight: bold;
     color: white;
