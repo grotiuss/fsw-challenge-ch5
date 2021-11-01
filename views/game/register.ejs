@@ -12,7 +12,27 @@
     <style>
         #sign-in-head{
             color: rgb(126, 126, 126);
-            text-align: right;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #sign-up-head{
+            color: black;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        #form-button{
+            border-radius: 0px;
+            /* border-color: black; */
+        }
+
+        #form-button:hover{
+            border-radius: 0px;
+            box-shadow: 5px 5px #000000;
         }
     </style>
 
@@ -26,11 +46,11 @@
             <div class='col-md-4 col-8'>
                 <form id='login-form' action='/game/register' method='POST'>
                     <div class="row justify-content-center">
-                        <div class="col">
-                            <h3 id='sign-in-head'>SIGN IN</h3>
+                        <div class="col text-end">
+                            <a id='sign-in-head' href="/game/login">SIGN IN</a>
                         </div>
                         <div class='col'>
-                            <h3 id='sign-up-head'>SIGN UP</h3>
+                            <a id='sign-up-head' href="/game/register">SIGN UP</a>
                         </div>
                     </div>
                     <div class="mt-5">
@@ -45,7 +65,7 @@
                     </div>
 
                     <div class="mt-4 text-center">
-                        <button type="submit" class="btn">Register</button>
+                        <button id = 'form-button' type="submit" class="btn"><b>Register</b></button>
                     </div>
                 </form>
             </div>
