@@ -19,9 +19,9 @@ router.get('/game/login', (req, res) => {
 })
 
 router.get('/game/logout', (req, res) => {
-    user = def_account,
+    user.id = undefined,
     login.status = ''
-    res.redirect('/game/login')
+    res.redirect('/game')
 })
 
 
