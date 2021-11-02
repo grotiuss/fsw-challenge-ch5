@@ -79,10 +79,12 @@ router.post('/game', (req, res) => {
     if (result.length > 0) {
         user.id = result[0].id
         user.username = result[0].username
+        login.status = ''
         console.log(accounts)
         res.redirect('/game')
     } else {
         console.log('Login failed!! :(')
+        login.status = 'Login failed. Check your username and password!'
         res.redirect('/game/login')
     }
 })
