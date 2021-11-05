@@ -10,8 +10,8 @@
     <%- include('partials/header') %>
 
         <style>
-            #login-page {
-                background-image: url('https://images.unsplash.com/photo-1553991562-9f24b119ff51?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1039&q=80');
+            #register-page {
+                background-image: url('https://images.unsplash.com/photo-1565018968331-61145555526b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80');
                 /* background-position: center; */
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -56,58 +56,50 @@
                 color: white;
             }
 
-            .btn{
+            .btn {
                 color: white;
                 border-radius: 0px;
                 width: 100%;
             }
-            .btn:hover{
+
+            .btn:hover {
                 color: white;
                 box-shadow: 5px 5px;
             }
-            .btn:active{
+
+            .btn:active {
                 background-color: white;
                 color: black;
                 box-shadow: none;
-            }
-
-            #status{
-                color: white;
             }
         </style>
 
 </head>
 
-<body id='login-page'>
+<body id='register-page'>
     <%- include('partials/navbar') %>
         <div class='blur pt-5'>
             <div class='container mt-5'>
                 <div class="row justify-content-center">
                     <div class="col-xl-4 col-lg-6 col-md-8 col-10 text-center">
-                        <form action="/login" method="POST" id='login-form' class='ps-5 pe-5'>
-                            <h2>Login</h2>
-                            <div id='status' class="row mt-3">
-                                <div class="col text-center">
-                                    <span id='status-1'>
-                                        <%= status %>
-                                    </span>
-                                </div>
-                            </div>
+                        <form action="/register" method="POST" id='login-form' class='ps-5 pe-5'>
+                            <h2>REGISTER</h2>
+
                             <div class="mt-5 text-start">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="Type your username">
+                                    placeholder="Type your username" required>
                             </div>
 
                             <div class="mt-3 text-start">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Type your password">
+                                    placeholder="Type your password" required>
                             </div>
 
                             <div class="mt-4 text-center">
                                 <button type="submit" class="btn">
-                                    <b>Sign in</b>
+                                    <b>Sign up</b>
                                 </button>
                             </div>
                         </form>
@@ -117,14 +109,6 @@
         </div>
 
         <%- include('partials/js') %>
-        <script>
-            var statusSign = document.getElementById('status-1')
-            var statusColumn = document.getElementById('status')
-
-            if(statusSign.innerText.length == 0){
-                statusColumn.style.display = 'none'
-            }
-        </script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@ var fs = require('fs')
 const express = require('express')
 const router = express.Router()
 
-let accounts = undefined
+let accounts = require('../db/accounts.json')
 let user = {}
 let login = {
     status: '',
@@ -11,9 +11,6 @@ let login = {
 router.use((req, res, next) => {
     user = router.params
     fs.readFile('db/accounts.json', 'utf-8', (err, data) => {
-        if (err) {
-            console.log(err)
-        }
         var content = JSON.parse(data)
         accounts = content
     })
@@ -60,9 +57,6 @@ router.post('/game/register', (req, res) => {
 
         //Push to JSON
         fs.readFile('db/accounts.json', 'utf-8', (err, data) => {
-            if (err) {
-                console.log(err)
-            }
             var content = JSON.parse(data)
             content.push(temp)
             accounts = content
