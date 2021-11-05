@@ -1,25 +1,37 @@
 var fs = require('fs')
 const express = require('express')
 const router = express.Router()
-let accounts = require('../db/accounts.json')
 
-const def_account = {
-    id: undefined,
-    username: 'PlayerUsername',
-    password: 'PlayerPassword'
-}
-let user = def_account
+let accounts = undefined
+let user = {}
 
 let login = {
     status: '',
 }
+
+router.use((req, res, next) => {
+    user = router.params
+    fs.readFile('db/accounts.json', 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+        var content = JSON.parse(data)
+        accounts = content
+    })
+    next()
+})
 
 router.get('/game/login', (req, res) => {
     res.render('game/login',login)
 })
 
 router.get('/game/logout', (req, res) => {
-    user.id = undefined,
+    user.id = undefined
+    user.username = undefined
+    router.params = {
+        id: undefined,
+        username: undefined
+    }
     login.status = ''
     res.redirect('/game')
 })
@@ -80,7 +92,6 @@ router.post('/game', (req, res) => {
         user.id = result[0].id
         user.username = result[0].username
         login.status = ''
-        console.log(accounts)
         res.redirect('/game')
     } else {
         console.log('Login failed!! :(')
@@ -92,7 +103,6 @@ router.post('/game', (req, res) => {
 //Middleware
 router.use((req, res, next, ) => {
     if (user.id) {
-        console.log(user)
         next()
     } else {
         res.redirect('/game/login')

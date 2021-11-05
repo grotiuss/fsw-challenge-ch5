@@ -35,7 +35,7 @@
     <div class='container mt-4' id='desktop'>
         <div class="row justify-content-between text-center">
             <div class="col-md-4">
-                <h1><%= username %></h1>
+                <h1 id='username'><%= username %></h1>
             </div>
             <div class="col-md-4">
                 <h1>Computer</h1>
@@ -109,6 +109,13 @@
 
     <!-- Game JS  -->
     <script src="/js/game.js"></script>
+
+    <script>
+        var username = document.getElementById('username')
+        if(!username.innerText){
+            username.innerText = 'PlayerUsername'
+        }
+    </script>
 </body>
 
 </html>
