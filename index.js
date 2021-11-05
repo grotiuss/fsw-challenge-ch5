@@ -24,8 +24,6 @@ app.use((req, res, next) => {
         var content = JSON.parse(data)
         accounts = content
     })
-    console.log('Daftar akun pada halaman utama')
-    console.log(accounts)
     next()
 })
 

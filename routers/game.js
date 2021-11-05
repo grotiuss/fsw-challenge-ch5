@@ -4,7 +4,6 @@ const router = express.Router()
 
 let accounts = undefined
 let user = {}
-
 let login = {
     status: '',
 }
